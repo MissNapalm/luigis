@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mangione's Italian Restaurant</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Italiana&display=swap" rel="stylesheet">
+  <style>
+    /* Add this to your style.css for smooth fading */
+    .hero-video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      transition: opacity 1s ease;
+      z-index: 0;
+    }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      height: 100vh;
+    }
+    .hero-overlay {
+      position: relative;
+      z-index: 1;
+    }
+    .card {
+      font-family: 'Lato', 'Roboto', Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <img src="logo.png" alt="Mangione's Logo" class="logo" />
+    <ul class="nav-menu">
+      <li>Home</li>
+      <li>Menu</li>
+      <li>About</li>
+      <li>Contact</li>
+    </ul>
+  </header>
+
+  <section class="hero">
+    <video id="heroVideo1" autoplay muted playsinline class="hero-video" style="opacity:1;">
+      <source src="background1.mp4" type="video/mp4" />
+    </video>
+    <video id="heroVideo2" autoplay muted playsinline class="hero-video" style="opacity:0;">
+      <source src="background2.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay">
+      <h1>A TASTE OF ITALY</h1>
+      <button class="cta-button">Book a Reservation</button>
+    </div>
+  </section>
+
+  <div class="spacer-between-videos"></div>
+
+  <section class="cards-wrapper">
+    <div class="card">
+      <h2>Authentic Recipes</h2>
+      <p>Crafted over generations, each dish at Mangione’s speaks of tradition, passion, and the vibrant spirit of Italy. From classic marinara to handmade gnocchi, our recipes are pure heritage.</p>
+    </div>
+    <div class="card">
+      <h2>Fresh Ingredients</h2>
+      <p>We use only the finest ingredients—locally sourced vegetables, imported Italian cheeses, and premium olive oils—to ensure a truly unforgettable dining experience.</p>
+    </div>
+    <div class="card">
+      <h2>Warm Atmosphere</h2>
+      <p>Step into a cozy, candlelit space filled with rustic charm, soft music, and the welcoming aroma of Italian cuisine. Perfect for romance, family, or celebration.</p>
+    </div>
+  </section>
+
+  <div class="spacer-between-about-and-cards"></div>
+
+  <section class="about-split">
+    <div class="about-content">
+      <div class="about-card">
+        <h2>Who We Are</h2>
+        <div class="about-gold-line"></div>
+        <p>
+          We're a family-run restaurant serving San Antonio for over 30 years. Our mission is to bring a true Italian dining experience to your table.<br><br>
+          At Mangione's, every guest is treated like family. Our chefs use recipes passed down through generations, blending tradition with a touch of modern flair.
+        </p>
+        <div class="about-gold-line"></div>
+      </div>
+    </div>
+    <div class="about-image">
+      <img src="image1.jpg" alt="Restaurant interior" />
+    </div>
+  </section>
+
+  <div class="spacer-between-about-and-cards"></div>
+
+  <section class="testimonials" style="background-image: linear-gradient(rgba(0,0,0,0.33), rgba(0,0,0,0.33)), url('patrons.png'); background-size: cover; background-position: center;">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">“Unreal service. Best lasagna ever. The staff made us feel like family and the wine selection was perfect for our meal.”<br><br><span class="testimonial-name">– Marco D.</span></div>
+      <div class="testimonial-card">“My go-to for date night. The ambiance is so romantic and the food is always fresh and delicious. Highly recommend the tiramisu!”<br><br><span class="testimonial-name">– Julia S.</span></div>
+      <div class="testimonial-card">“Feels like Nonna made it herself. The flavors are authentic and the portions are generous. We’ll be back again and again.”<br><br><span class="testimonial-name">– Antonio V.</span></div>
+      <div class="testimonial-card">“The tiramisu is divine. I’ve tried many, but this one is truly unforgettable. The perfect end to a wonderful meal.”<br><br><span class="testimonial-name">– Maria L.</span></div>
+      <div class="testimonial-card">“Incredible atmosphere. The music, lighting, and décor transport you straight to Italy. A must-visit in San Antonio.”<br><br><span class="testimonial-name">– Luca F.</span></div>
+      <div class="testimonial-card">“The ravioli? Chef’s kiss. The filling was rich and the sauce was bursting with flavor. Can’t wait to try more dishes.”<br><br><span class="testimonial-name">– Sophia G.</span></div>
+      <div class="testimonial-card">“Can’t wait to come back. Every dish was a delight and the staff went above and beyond to make our night special.”<br><br><span class="testimonial-name">– Daniel P.</span></div>
+      <div class="testimonial-card">“The gnocchi changed my life. I never knew pasta could be this good. Every bite reminded me of my grandmother’s kitchen in Florence.”<br><br><span class="testimonial-name">– Isabella R.</span></div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <div class="newsletter-content">
+      <h2>Stay in Touch</h2>
+      <p>Be the first to know about special offers, new menu items, and exclusive events at Mangione's.</p>
+    </div>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Enter your email address" />
+      <button>Subscribe</button>
+    </div>
+  </section>
+
+  <section class="reservation">
+    <div class="reservation-bg"></div>
+    <div class="reservation-card">
+      <h2>Book a Reservation</h2>
+      <p>Reserve your table today and experience the magic of Mangione's.</p>
+      <button>Reserve Now</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Jobs</a>
+      <a href="#">Franchise Info</a>
+      <a href="#">Accessibility</a>
+      <a href="#">Gift Cards</a>
+      <a href="#">Catering</a>
+      <a href="#">Events</a>
+      <a href="#">FAQ</a>
+      <a href="#">Contact Us</a>
+    </div>
+    <p>© 2025 Mangione’s Italian Restaurant. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
