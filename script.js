@@ -1,9 +1,9 @@
 const videoSources = [
   'background2.mp4',
-  'background4.mp4',
+  'background4.webm',
   'background1.mp4',
   'background3.mp4',
-]
+];
 
 let current = 0;
 const videoEls = [
@@ -19,7 +19,7 @@ videoEls[1].style.opacity = 0;
 function crossfadeVideos() {
   const currentVid = videoEls[current % 2];
   const nextVid = videoEls[(current + 1) % 2];
-  
+
   // Move to next video in the array
   current = (current + 1) % videoSources.length;
   const nextSource = videoSources[current];
@@ -29,7 +29,7 @@ function crossfadeVideos() {
   nextVid.style.transition = 'none';
   nextVid.style.opacity = 0;
   nextVid.load();
-  
+
   nextVid.oncanplay = () => {
     nextVid.oncanplay = null;
     nextVid.currentTime = 0;
@@ -43,16 +43,17 @@ function crossfadeVideos() {
       currentVid.style.opacity = 0;
     }, 50);
 
-    // After fade, pause the old video and continue loop
+    // Pause the old video after fade
     setTimeout(() => {
       currentVid.pause();
-      setTimeout(crossfadeVideos, 4000);
+      // Schedule next crossfade after 2 seconds
+      setTimeout(crossfadeVideos, 2000);
     }, 1050);
   };
 }
 
-// Start crossfade after 3 seconds
-setTimeout(crossfadeVideos, 3000);
+// Start crossfade after 2 seconds
+setTimeout(crossfadeVideos, 2000);
 
 document.addEventListener('DOMContentLoaded', () => {
   // Animate the three cards in .cards-wrapper

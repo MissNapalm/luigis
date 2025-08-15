@@ -144,5 +144,63 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+  const videoSources = [
+    'https://drive.google.com/uc?export=download&id=1VEII38wrXpdLBI-Qj371nWAwzANhnXEN',
+    'https://drive.google.com/uc?export=download&id=13j_md46yAUvpoUilKlHROK61TLmylInk',
+    'https://drive.google.com/uc?export=download&id=1_87x4MJynodWGzX_A-RStu2WbIrruzhu',
+    'https://drive.google.com/uc?export=download&id=10yUloB-oKYYqZed8nBT-I1PMN8ZBWjHK',
+  ];
+
+  let current = 0;
+  const videoEls = [
+    document.getElementById('heroVideo1'),
+    document.getElementById('heroVideo2')
+  ];
+
+  // Initial setup
+  videoEls[0].src = videoSources[0];
+  videoEls[0].play();
+  videoEls[1].style.opacity = 0;
+
+  function crossfadeVideos() {
+    const currentVid = videoEls[current % 2];
+    const nextVid = videoEls[(current + 1) % 2];
+
+    // Move to next video in the array
+    current = (current + 1) % videoSources.length;
+    const nextSource = videoSources[current];
+
+    // Set up the next video
+    nextVid.src = nextSource;
+    nextVid.style.transition = 'none';
+    nextVid.style.opacity = 0;
+    nextVid.load();
+
+    nextVid.oncanplay = () => {
+      nextVid.oncanplay = null;
+      nextVid.currentTime = 0;
+      nextVid.play();
+
+      // Crossfade
+      setTimeout(() => {
+        nextVid.style.transition = 'opacity 1s ease';
+        currentVid.style.transition = 'opacity 1s ease';
+        nextVid.style.opacity = 1;
+        currentVid.style.opacity = 0;
+      }, 50);
+
+      // Pause the old video after fade
+      setTimeout(() => {
+        currentVid.pause();
+        // Schedule next crossfade after 2 seconds
+        setTimeout(crossfadeVideos, 2000);
+      }, 1050);
+    };
+  }
+
+  // Start crossfade after 2 seconds
+  setTimeout(crossfadeVideos, 2000);
+  </script>
 </body>
 </html>
