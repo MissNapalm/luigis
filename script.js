@@ -111,4 +111,19 @@ document.addEventListener('DOMContentLoaded', () => {
     );
     aboutObserver.observe(aboutCard);
   }
+
+  // Animate vertical sections at the bottom (newsletter, footer)
+  const animatedSections = document.querySelectorAll('.animated-section');
+  const sectionObserver = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+  animatedSections.forEach(section => sectionObserver.observe(section));
 });

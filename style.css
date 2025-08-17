@@ -18,7 +18,7 @@ body {
   padding: 20px 40px;
   background: transparent;
   position: absolute;
-  top: -1.5cm;
+  top: 20px; /* Move navbar up by 60px (from 80px to 20px) */
   left: 0;
   z-index: 3;
   width: 100%;
@@ -27,6 +27,20 @@ body {
 .logo {
   height: 202.8px;
   margin-right: 20px;
+}
+
+.logo-text {
+  font-family: 'Italiana', serif;
+  font-size: 3rem;
+  letter-spacing: 0.15em;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  font-weight: 400;
+  display: inline-block;
+  margin-right: 20px; /* Adjust this value for desired spacing */
+  user-select: none;
+  position: relative;
+  left: 0; /* Ensure no negative offset */
 }
 
 .nav-menu {
@@ -500,4 +514,18 @@ footer {
   color: white;
   text-decoration: none;
   font-size: 0.9em;
+}
+
+/* Animate vertical sections (newsletter, footer) */
+.animated-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s cubic-bezier(.4,0,.2,1),
+    transform 0.8s cubic-bezier(.4,0,.2,1);
+}
+
+.animated-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

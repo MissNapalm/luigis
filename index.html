@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mangione's Italian Restaurant</title>
+  <title>Essenza's Italian Restaurant</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Italiana&display=swap" rel="stylesheet">
   <style>
@@ -33,7 +33,7 @@
 </head>
 <body>
   <header class="navbar">
-    <img src="logo.png" alt="Mangione's Logo" class="logo" />
+    <span class="logo-text">Essenza</span>
     <ul class="nav-menu">
       <li>Home</li>
       <li>Menu</li>
@@ -60,7 +60,7 @@
   <section class="cards-wrapper">
     <div class="card">
       <h2>Authentic Recipes</h2>
-      <p>Crafted over generations, each dish at Mangione’s speaks of tradition, passion, and the vibrant spirit of Italy. From classic marinara to handmade gnocchi, our recipes are pure heritage.</p>
+      <p>Crafted over generations, each dish at Essenza speaks of tradition, passion, and the vibrant spirit of Italy. From classic marinara to handmade gnocchi, our recipes are pure heritage.</p>
     </div>
     <div class="card">
       <h2>Fresh Ingredients</h2>
@@ -81,7 +81,7 @@
         <div class="about-gold-line"></div>
         <p>
           We're a family-run restaurant serving San Antonio for over 30 years. Our mission is to bring a true Italian dining experience to your table.<br><br>
-          At Mangione's, every guest is treated like family. Our chefs use recipes passed down through generations, blending tradition with a touch of modern flair.
+          At Essenza, every guest is treated like family. Our chefs use recipes passed down through generations, blending tradition with a touch of modern flair.
         </p>
         <div class="about-gold-line"></div>
       </div>
@@ -107,10 +107,10 @@
     </div>
   </section>
 
-  <section class="newsletter">
+  <section class="newsletter animated-section">
     <div class="newsletter-content">
       <h2>Stay in Touch</h2>
-      <p>Be the first to know about special offers, new menu items, and exclusive events at Mangione's.</p>
+      <p>Be the first to know about special offers, new menu items, and exclusive events at Essenza.</p>
     </div>
     <div class="newsletter-form">
       <input type="email" placeholder="Enter your email address" />
@@ -122,12 +122,12 @@
     <div class="reservation-bg"></div>
     <div class="reservation-card">
       <h2>Book a Reservation</h2>
-      <p>Reserve your table today and experience the magic of Mangione's.</p>
+      <p>Reserve your table today and experience the magic of Essenza.</p>
       <button>Reserve Now</button>
     </div>
   </section>
 
-  <footer>
+  <footer class="animated-section">
     <div class="footer-links">
       <a href="#">Privacy Policy</a>
       <a href="#">Terms of Service</a>
@@ -140,7 +140,7 @@
       <a href="#">FAQ</a>
       <a href="#">Contact Us</a>
     </div>
-    <p>© 2025 Mangione’s Italian Restaurant. All rights reserved.</p>
+    <p>© 2025 Essenza Italian Restaurant. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
@@ -162,6 +162,10 @@
   videoEls[0].src = videoSources[0];
   videoEls[0].play();
   videoEls[1].style.opacity = 0;
+
+  // Listen for 'ended' event to trigger crossfade
+  videoEls[0].addEventListener('ended', crossfadeVideos);
+  videoEls[1].addEventListener('ended', crossfadeVideos);
 
   function crossfadeVideos() {
     const currentVid = videoEls[current % 2];
@@ -193,14 +197,15 @@
       // Pause the old video after fade
       setTimeout(() => {
         currentVid.pause();
-        // Schedule next crossfade after 2 seconds
-        setTimeout(crossfadeVideos, 2000);
       }, 1050);
     };
+
+    // Listen for 'ended' on the new video
+    nextVid.addEventListener('ended', crossfadeVideos, { once: true });
   }
 
-  // Start crossfade after 2 seconds
-  setTimeout(crossfadeVideos, 2000);
+  // Start crossfade after 3 seconds
+  setTimeout(crossfadeVideos, 3000);
   </script>
 </body>
 </html>
