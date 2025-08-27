@@ -34,14 +34,3 @@ body {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.1rem;
 }
-
-.hero-overlay h1 {
-  font-family: 'Italiana', 'Cormorant Garamond', serif;
-  font-size: 3.2rem;
-  letter-spacing: 0.13em;
-  color: #3a2c1a;
-  font-weight: 400;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  margin-bottom: 0.5em;
-  text-transform: uppercase;
-}
